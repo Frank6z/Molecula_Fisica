@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modelación de Materiales Física III</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Modelación de Materiales – Física III</h1>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="tab-p1">Parcial 1</button>
+      <button class="tab-btn" data-tab="tab-p2">Parcial 2</button>
+    </nav>
+    
+  </header>
+
+  <!-- Contenedor general -->
+  <div class="app-container">
+
+    <!-- ===== P1 ===== -->
+    <aside class="sidebar" id="sidebar-p1">
+      <div class="sidebar-title">Parcial 1</div>
+      <a href="#p1-molecula3d">Molécula 3D</a>
+      <a href="#p1-molecula2d">Molécula 2D</a>
+      <a href="#p1-conjunto">Conjunto de moléculas</a>
+      <a href="#p1-contenedor">Contenedor de moléculas</a>
+      <a href="#p1-espectros">Espectro IR y Espectro Raman</a>
+      <a href="#p1-adhesion">Trabajo de adhesión</a>
+      <a href="#p1-teorica">Molécula teórica</a>
+      <a href="#p1-comparar">Comparar datos</a>
+      <a href="#p1-otros">Otros parámetros</a>
+      <div class="sidebar-sep"></div>
+      <div class="sidebar-title small">H₂O y Br₂O</div>
+      <a href="#p1-hb-geom">Geometrías 2D</a>
+      <a href="#p1-hb-ir">IR comparativo</a>
+      <a href="#p1-hb-ener">Energías</a>
+      <a href="#p1-hb-orb">Orbitales</a>
+      <a href="#p1-hb-rdf">RDF</a>
+      <a href="#p1-hb-params">Parámetros Br₂O</a>
+    </aside>
+
+    <!-- ===== P2 SIDEBAR ===== -->
+    <aside class="sidebar p2" id="sidebar-p2" style="display:none;">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <span>DAS · SiO₂</span>
+      </div>
+
+      <nav class="menu">
+        <a href="#literal-1"  class="menu-item" data-literal-link>Literal 1</a>
+        <a href="#literal-2"  class="menu-item" data-literal-link>Literal 2</a>
+        <a href="#literal-3"  class="menu-item" data-literal-link>Literal 3</a>
+        <a href="#literal-4"  class="menu-item" data-literal-link>Literal 4</a>
+        <a href="#literal-5"  class="menu-item" data-literal-link>Literal 5</a>
+        <a href="#literal-6"  class="menu-item" data-literal-link>Literal 6</a>
+        <a href="#literal-7"  class="menu-item" data-literal-link>Literal 7</a>
+        <a href="#literal-8"  class="menu-item" data-literal-link>Literal 8</a>
+        <a href="#literal-9"  class="menu-item" data-literal-link>Literal 9</a>
+        <a href="#literal-10" class="menu-item" data-literal-link>Literal 10</a>
+        <a href="#literal-11" class="menu-item" data-literal-link>Literal 11</a>
+        <a href="#literal-12" class="menu-item" data-literal-link>Literal 12</a>
+        <a href="#literal-13" class="menu-item" data-literal-link>Literal 13</a>
+        <a href="#literal-14" class="menu-item" data-literal-link>Literal 14</a>
+        <a href="#literal-15" class="menu-item" data-literal-link>Literal 15</a>
+      </nav>
+
+      <button class="collapse-btn" id="collapseBtn" aria-label="Contraer/Expandir" title="Contraer/Expandir">⟨</button>
+      </aside>
+
+
+    <main class="content">
+      <!-- TAB P1 -->
+      <section id="tab-p1" class="tab-panel active">
+        <div class="download-bar">
+          <a class="dl-link" href="../resultados_P1.xlsx" download>Descargar resultados P1 (xlsx)</a>
+          <a class="dl-link" href="../resultados_H2O_Br2O.xlsx" download>Descargar H2O/Br₂O (xlsx)</a>
+        </div>
+        <!-- 1 -->
+        <article class="card" id="p1-modelo3dH2O">
+          <h2>Molécula 3D (H₂O)</h2>
+          <p>Vista 3D generada por el script del Parcial 1.</p>
+          <img src="imgP1/modelo3dH2O.png" alt="Molécula 3D" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 2 -->
+        <article class="card" id="p1-modelo2dH2O">
+          <h2>Molécula 2D (H₂O)</h2>
+          <p>Proyección 2D estilizada.</p>
+          <img src="imgP1/modelo2dH2O.png" alt="Molécula 2D" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 3 -->
+        <article class="card" id="p1-conjuntoH2O">
+          <h2>Conjunto de moléculas</h2>
+          <p>Nube de puntos de posiciones atómicas simuladas.</p>
+          <img src="imgP1/conjuntoH2O.png" alt="Conjunto de moléculas" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 4 -->
+        <article class="card" id="p1-contenedorH2O">
+          <h2>Contenedor de moléculas</h2>
+          <p>Caja de simulación con partículas (moléculas) distribuidas.</p>
+          <img src="imgP1/contenedorH2O.png" alt="Contenedor de moléculas" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 5 -->
+        <article class="card" id="p1-espectros">
+          <h2>Espectro IR y Espectro Raman</h2>
+          <p>Espectros simulados con inversión de eje de número de onda.</p>
+          <div class="img-grid">
+            <img src="imgP1/Espectro_IR_Raman.png" alt="Espectro IR" loading="lazy" class="img-fit" />
+            <img src="imgP1/Espectro_Raman_IR.png" alt="Espectro Raman vs IR" loading="lazy" class="img-fit" />
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="card" id="p1-Trabajo de adhesion porcentual">
+          <h2>Trabajo de adhesión</h2>
+          <p>Curvas comparativas de energía en función del % de H₂O.</p>
+          <img src="imgP1/Trabajo de adhesion porcentual.png" alt="Trabajo de adhesión" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 7 -->
+        <article class="card" id="p1-Molecula teorica">
+          <h2>Molécula teórica</h2>
+          <p>Función de distribución radial (RDF) simulada.</p>
+          <img src="imgP1/Molecula teorica.png" alt="Molécula teórica / RDF" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 8 -->
+        <article class="card" id="p1-Comparar datos">
+          <h2>Comparar datos</h2>
+          <p>Comparación espectral A vs B (simulada).</p>
+          <img src="imgP1/Comparar datos.png" alt="Comparar datos" loading="lazy" class="img-fit" />
+        </article>
+
+        <!-- 9 -->
+        <article class="card" id="p1-otros">
+          <h2>Otros parámetros</h2>
+          <p>Espacio para imágenes adicionales de “Otros parámetros”.</p>
+          <div class="img-grid">
+            <img src="imgP1/Energias moleculares.png" class="img-fit" alt="Energias moleculares en unidades atomicas " />
+            <img src="imgP1/Comparacion combinada.png" class="img-fit" alt="Comparacion combinada" />
+            <img src="imgP1/Grafico comparativo de energias.png" class="img-fit" alt="Grafico comparativo de energias" />
+            <img src="imgP1/Grafico combinado (energias absolutas).png" class="img-fit" alt="Grafico combinado (energias absolutas)" />
+            <img src="imgP1/Energia de los Orbitales (eV).png" class="img-fit" alt="Energia de los Orbitales (eV)" />
+            <img src="imgP1/Carga de los Orbitales Reducidos (MULLIKEN y LOEWDIN).png" class="img-fit" alt="Carga de los Orbitales Reducidos (MULLIKEN y LOEWDIN)" />
+            <img src="imgP1/Comparacion de frecuencias vibracionales de H2O.png" class="img-fit" alt="Comparacion de frecuencias vibracionales de H2O" />
+            <img src="imgP1/Error Porcentual.png" class="img-fit" alt="Error Porcentual" />
+            <img src="imgP1/Diagrama de niveles MO.png" class="img-fit" alt="Diagrama de niveles MO" />
+          </div>
+        </article>
+
+        <!-- ==== H2O & Br2O ==== -->
+        <article class="card" id="p1-hb-geom">
+          <h2>H₂O y Br₂O — Geometrías 2D</h2>
+          <div class="img-grid">
+            <figure>
+              <img src="imgHB/geom_H2O.png" alt="Geom H2O" class="img-fit" loading="lazy" />
+              <figcaption>H₂O — Proyección 2D</figcaption>
+            </figure>
+            <figure>
+              <img src="imgHB/geom_Br2O.png" alt="Geom Br2O" class="img-fit" loading="lazy" />
+              <figcaption>Br₂O — Proyección 2D</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="card" id="p1-hb-ir">
+          <h2>H₂O y Br₂O — IR comparativo</h2>
+          <img src="imgHB/IR_compare.png" alt="IR comparativo" loading="lazy" class="img-fit" />
+        </article>
+
+        <article class="card" id="p1-hb-ener">
+          <h2>H₂O y Br₂O — Energías</h2>
+          <!-- Si usaste el script anterior, puede llamarse energies.png o energies_Eh.png -->
+          <img src="imgHB/energies.png" alt="Energías H2O vs Br2O" loading="lazy" class="img-fit" onerror="this.onerror=null;this.src='../imgHB/energies_Eh.png';" />
+          </article>
+
+        <article class="card" id="p1-hb-orb">
+          <h2>H₂O y Br₂O — Orbitales</h2>
+          <img src="imgHB/orbitals.png" alt="Orbitales" loading="lazy" class="img-fit" />
+        </article>
+
+        <article class="card" id="p1-hb-rdf">
+          <h2>H₂O y Br₂O — RDF</h2>
+          <img src="imgHB/rdf_compare.png" alt="RDF comparativo" loading="lazy" class="img-fit" />
+        </article>
+
+        <article class="card" id="p1-hb-params">
+          <h2>Parámetros Br₂O</h2>
+          <img src="imgHB/Br2O_params.png" alt="Parámetros Br2O" loading="lazy" class="img-fit" />
+        </article>
+      </section>
+
+      <!-- TAB P2 -->
+<section id="tab-p2" class="tab-panel">
+  <header class="topbar">
+    <h2>Panel de Literales (Parcial 2)</h2>
+    <p class="subtitle">Selecciona un literal en la barra lateral para ver sus imágenes</p>
+  </header>
+
+  <div class="container">
+
+    <!-- ====== Literal 1 ====== -->
+<section class="section" id="literal-1" data-literal>
+  <div class="section-head">
+    <h3>Literal 1 · Ecuación de estado (P–ε)</h3>
+    <p class="section-note">Ajustes lineal y cuadrático sobre P ≈ K(1–2ν)·ε.</p>
+  </div>
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">1.1 · P vs ε (con ajustes)</h4>
+      <img src="img/L1_ecuacion_estado.png" alt="Ecuación de estado P vs epsilon"
+           class="img-fit zoomable" loading="lazy" />
+      <figcaption>Se muestran regresiones lineal y cuadrática y el factor K(1–2ν).</figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- ====== Literal 2 ====== -->
+<section class="section" id="literal-2" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 2 · Constantes elásticas / fotoelásticas</h3>
+    <p class="section-note">Relación fase–strain (proxy) y estimación de p<sub>e</sub> eficaz.</p>
+  </div>
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">2.1 · Fase promedio vs ε</h4>
+      <img src="img/L2_fase_vs_strain.png" alt="Relación fase vs strain"
+           class="img-fit zoomable" loading="lazy" />
+      <figcaption>Recta de mejor ajuste y anotación de C₀ y p<sub>e</sub> estimado.</figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- ====== Literal 3 ====== -->
+<section class="section" id="literal-3" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 3 · Masas efectivas (proxy desde f–k)</h3>
+    <p class="section-note">Selección de cresta en |F(k)| a f<sub>dom</sub> y ajuste E(k)~k².</p>
+  </div>
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">3.1 · Cresta f–k</h4>
+      <img src="img/L3_fk_cresta.png" alt="Espectro espacial a f_dom"
+           class="img-fit zoomable" loading="lazy" />
+      <figcaption>Cresta seleccionada en el dominio f–k.</figcaption>
+    </figure>
+    <figure class="img-card">
+      <h4 class="img-title">3.2 · Ajuste E(k)</h4>
+      <img src="img/L3_Ek_parabolico.png" alt="Ajuste parabolico E(k)"
+           class="img-fit zoomable" loading="lazy" />
+      <figcaption>Parábola ajustada ⇒ m* (proxy) reportado en XLSX.</figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- ====== Literal 4 ====== -->
+<section class="section" id="literal-4" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 4 · Contorno de Fermi 2D</h3>
+    <p class="section-note">Modelo parabólico isotrópico con m* del L3.</p>
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">4.1 · k<sub>F</sub> — contorno 2D</h4>
+      <img src="img/L4_superficie_fermi.png" alt="Contorno de Fermi"
+           class="img-fit zoomable" loading="lazy" />
+      <figcaption>Contorno circular para E(k)=E₀+ħ²k²/2m*.</figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- ====== Literal 5 ====== -->
+<section class="section" id="literal-5" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 5 · Estructura de bandas fonónicas — SiO₂</h3>
+    <p class="section-note">
+      Comparación del modelo armónico extendido (ramas acústica y ópticas) con series experimentales DAS normalizadas.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">5.1 · Modelo vs. Datos DAS</h4>
+      <img
+        src="img/lit05_phonon_bands.png"
+        alt="Estructura de bandas fonónicas — modelo vs datos experimentales DAS"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>
+        Eje X: Γ–X–M (adimensional). Eje Y: Frecuencia (THz).  
+        Las curvas grises son series experimentales normalizadas para comparación visual (~20 THz).
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <!-- ====== Literal 6 ====== -->
+<section class="section" id="literal-6" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 6 · Coeficientes ópticos lineales — SiO₂</h3>
+    <p class="section-note">
+      Basado en la ecuación de Sellmeier (Malitson, 1965) y un modelo empírico de extinción.
+      Se muestran las curvas n(λ) y k(λ) para el rango 0.2–3.0 µm, con la región visible destacada.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">6.1 · Índice de refracción y coeficiente de extinción</h4>
+      <img
+        src="img/lit06_optical_coeffs.png"
+        alt="Coeficientes ópticos lineales n y k del SiO₂ (modelo de Sellmeier + extinción)"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>
+        n: índice de refracción (línea verde). k: coeficiente de extinción (línea discontinua magenta).  
+        La franja dorada indica el rango visible (0.38–0.78 µm).
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <!-- ====== Literal 7 ====== -->
+<section class="section" id="literal-7" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 7 · DOS, JDOS y campo dipolar</h3>
+    <p class="section-note">
+      Cálculo de la densidad de estados (DOS), densidad conjunta de estados (JDOS) y magnitud del campo dipolar
+      a lo largo de una línea de observación. Si no hay Excel de entrada, se generan datos sintéticos razonables.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">7.1 · DOS, JDOS y |E|</h4>
+      <img
+        src="img/lit07_dos_jdos_dipolar.png"
+        alt="DOS, JDOS y campo dipolar en SiO₂"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>
+        Panel superior: DOS (states/eV). Panel medio: JDOS(ΔE) (states²/eV).
+        Panel inferior: campo dipolar normalizado a lo largo de z (eje derecho en V/m).
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <!-- ====== Literal 8 ====== -->
+<section class="section" id="literal-8" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 8 · Momento dipolar vs. B</h3>
+    <p class="section-note">
+      Respuesta de saturación del momento magnético bajo un campo externo.
+      Se muestra la curva teórica y una medición experimental simulada con ruido leve.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">8.1 · Curva de saturación</h4>
+      <img
+        src="img/lit08_momento_vs_B.png"
+        alt="Momento magnético en función del campo magnético B"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>
+        Región lineal destacada (B ≲ 1 T) y saturación hacia μ<sub>sat</sub>.
+        Datos exportados en <code>resultados_lit08.xlsx</code>.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <!-- ====== Literal 9 ====== -->
+    <section class="section" id="literal-9" data-literal hidden>
+      <div class="section-head">
+        <h3>Literal 9</h3>
+        <p class="section-note">Funciones de onda — p.ej. lit9_ondas_SiO2_*.png.</p>
+      </div>
+      <div class="cards-grid">
+        <figure class="img-card">
+          <h4 class="img-title">ψ0, ψ1, ψ2 (armónico)</h4>
+          <img src="img/lit9_ondas_SiO2.png" alt="Funciones de onda Si–O" class="img-fit" loading="lazy" />
+          <figcaption>Parámetros anotados en la figura.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== Literal 10 ====== -->
+    <section class="section" id="literal-10" data-literal hidden>
+      <div class="section-head">
+        <h3>Literal 10</h3>
+        <p class="section-note">Fase sintética — mapas y cortes.</p>
+      </div>
+      <div class="cards-grid">
+        <figure class="img-card">
+          <h4 class="img-title">Mapa Δφ(x,t)</h4>
+          <img src="img/lit10_map_dphi.png" alt="Mapa Δφ" class="img-fit" loading="lazy" />
+          <figcaption>ε₀, f, n, p_eff y L_g.</figcaption>
+        </figure>
+        <figure class="img-card">
+          <h4 class="img-title">Cortes Δφ(x,t)</h4>
+          <img src="img/lit10_cortes_dphi.png" alt="Cortes Δφ" class="img-fit" loading="lazy" />
+          <figcaption>Cortes temporales seleccionados.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== Literal 11 ====== -->
+<section class="section" id="literal-11" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 11 · Energía total en equilibrio vs. distorsionada (ORCA / VASP)</h3>
+    <p class="section-note">
+      Comparación de energías para la celda de SiO₂ bajo tensor de tensiones: barras (ΔE),
+      curvas E(ε) por motor, mapa tensión–energía y trayectoria de relajación.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- 11.1 Barras: Equilibrio vs Distorsionada -->
+    <figure class="img-card">
+      <h4 class="img-title">11.1 · Barras: E(eq) vs E(def) y ΔE por motor</h4>
+      <img
+        src="img/lit11_energy_bars.png"
+        alt="Barras de energía total para equilibrio y distorsionada en ORCA y VASP"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>Comparación directa por caso; etiqueta superior muestra ΔE del motor.</figcaption>
+    </figure>
+
+    <!-- 11.2 Curvas E(ε) -->
+    <figure class="img-card">
+      <h4 class="img-title">11.2 · Curvas E(ε) por motor</h4>
+      <img
+        src="img/lit11_energy_vs_strain.png"
+        alt="Curvas de energía total E en función de la deformación ε para ORCA y VASP"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>
+        Tendencias cuadráticas alrededor del equilibrio; mínimo ~ε≈0 indica estado relajado.
+      </figcaption>
+    </figure>
+
+    <!-- 11.3 Mapa tensión–energía -->
+    <figure class="img-card">
+      <h4 class="img-title">11.3 · Mapa tensión–energía</h4>
+      <img
+        src="img/lit11_tensor_heatmap.png"
+        alt="Mapa de calor tensión vs energía total"
+        class="img-fit zoomable"
+        loading="lazy"
+      />
+      <figcaption>
+        Regiones de mayor costo energético bajo combinaciones de σ y ε (guía para límites operativos).
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+    <!-- ====== Literal 12 ====== -->
+<section class="section" id="literal-12" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 12</h3>
+    <p class="section-note">
+      Simulación molecular clásica del SiO₂ bajo excitación acústica y análisis de densidad local.
+    </p>
+  </div>
+
+  <!-- Cuadrícula de imágenes -->
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">Equilibrio T–P</h4>
+      <img src="img/lit12_fig_equilibrio_TP.png" alt="Equilibrio temperatura-presión" class="img-fit" loading="lazy" />
+      <figcaption>Relación entre temperatura, presión y estabilidad del sistema (SiO₂).</figcaption>
+    </figure>
+
+    <figure class="img-card">
+      <h4 class="img-title">Mapas de densidad local</h4>
+      <img src="img/lit12_fig_onda_acustica.png" alt="Mapas de densidad ρ(x,y)" class="img-fit" loading="lazy" />
+      <figcaption>Distribución espacial antes, durante y después del pulso acústico.</figcaption>
+    </figure>
+
+
+    <figure class="img-card">
+      <h4 class="img-title">Perfiles ρ(x) — línea media</h4>
+      <img src="img/lit12_fig_densidad_local.png" alt="Perfiles de densidad ρ(x)" class="img-fit" loading="lazy" />
+      <figcaption>Comparación entre el estado basal y el excitado por la onda.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <!-- ====== Literal 13 ====== -->
+<section class="section" id="literal-13" data-literal hidden>
+  <div class="section-head">
+    <h3>Literal 13 — VPT2 (SiO₂)</h3>
+    <p class="section-note">
+      Diferenciación armónico vs. anharmónico (VPT2 ROM): selección de canal, espectro, acoplamientos x<sub>ij</sub> y correlaciones de modos.
+    </p>
+
+  <div class="cards-grid">
+    <figure class="img-card">
+      <h4 class="img-title">Serie temporal (canal representativo)</h4>
+      <img src="img/lit13_serie_canal_representativo.png" alt="Serie temporal del canal representativo para VPT2" class="img-fit" loading="lazy" />
+      <figcaption>Normalización robusta (clip + MAD) y centrado. Punto de partida para ω<sub>i</sub>.</figcaption>
+    </figure>
+
+    <figure class="img-card">
+      <h4 class="img-title">Armónico vs. anarmónico</h4>
+      <img src="img/lit13_armonico_vs_anharmonico.png" alt="Comparación de |FFT| armónico vs log(1+|FFT|) anarmónico" class="img-fit" loading="lazy" />
+      <figcaption>Comparación de |FFT| y log(1+|FFT|) para resaltar desplazamientos debidos a x<sub>ii</sub>.</figcaption>
+    </figure>
+
+    <figure class="img-card">
+      <h4 class="img-title">Mapa x<sub>ij</sub> efectivo</h4>
+      <img src="img/lit13_xij_mapa.png" alt="Mapa efectivo de acoplamientos xij (cúbicos/cuárticos) VPT2" class="img-fit" loading="lazy" />
+      <figcaption>Surrogate de anharmonicidad: contribuciones propias y acoplamientos entre modos.</figcaption>
+    </figure>
+
+    <figure class="img-card">
+      <h4 class="img-title">Correlaciones entre modos</h4>
+      <img src="img/lit13_corr_modos_mapa.png" alt="Matriz de correlación entre modos vibracionales" class="img-fit" loading="lazy" />
+      <figcaption>Guía para posibles resonancias (Fermi 2:1, sumas i≈j+k) y mezclas modales.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <!-- ====== Literal 14 ====== -->
+    <section class="section" id="literal-14" data-literal hidden>
+      <div class="section-head">
+        <h3>Literal 14 — Optimización para tiempo real</h3>
+        <p class="section-note">
+          Búsqueda ligera de parámetros (WIN, OVER, Kt) para minimizar latencia y maximizar SNR con reconstrucción DCT.
+          Resultados en <code>resultados_lit14_15.xlsx</code>.
+        </p>
+
+      <div class="cards-grid">
+        <!-- Señal DAS -->
+        <figure class="img-card">
+          <h4 class="img-title">Señal DAS (normalizada)</h4>
+          <img
+            src="img/lit14_signal.png"
+            alt="Señal DAS normalizada en el tiempo"
+            class="img-fit zoomable"
+            loading="lazy" />
+          <figcaption>
+            Preprocesada: centrado y normalización por σ. Fuente: Excel (o sintético si no hay datos).
+          </figcaption>
+        </figure>
+
+        <!-- Latencia vs SNR (mejorado) -->
+        <figure class="img-card">
+          <h4 class="img-title">Latencia vs SNR — Densidad + Pareto</h4>
+          <img
+            src="img/lit14_latency_snr.png"
+            alt="Mapa latencia versus SNR con hexbin, tendencia y frente de Pareto"
+            class="img-fit zoomable"
+            loading="lazy" />
+          <figcaption>
+            Hexbin (densidad), puntos coloreados por <em>score</em>, línea de tendencia y frente de Pareto (máx SNR por latencia).
+          </figcaption>
+        </figure>
+
+        <!-- Reconstrucción -->
+        <figure class="img-card">
+          <h4 class="img-title">Reconstrucción (mejor set)</h4>
+          <img
+            src="img/lit14_reconstruction.png"
+            alt="Comparación señal original vs reconstruida usando DCT con mejores parámetros"
+            class="img-fit zoomable"
+            loading="lazy" />
+          <figcaption>
+            Superposición de señal original y reconstruida (mejor configuración). Anotados WIN, OVER, Kt, SNR y latencia.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+<!-- ====== Literal 15 ====== -->
+    <section class="section" id="literal-15" data-literal hidden>
+      <div class="section-head">
+        <h3>Literal 15 — Modelaje óptico/elasticidad (SiO₂ + DAS)</h3>
+        <p class="section-note">
+          Estimación de ε (RMS local), conversión fotoelástica (Δn) y fase óptica (Δφ) a 1550&nbsp;nm. Comparaciones locales y globales.
+        </p>
+
+
+      <div class="cards-grid">
+        <!-- Comparación ε vs Δφ -->
+        <figure class="img-card">
+          <h4 class="img-title">ε (µstrain) vs Δφ (rad)</h4>
+          <img
+            src="img/lit15_compare_eps_phi.png"
+            alt="Curvas temporales de deformación estimada en microstrain frente a fase óptica"
+            class="img-fit zoomable"
+            loading="lazy" />
+          <figcaption>
+            Dos ejes Y: ε estimada (µstrain) y Δφ modelada (rad). Conversión vía Δn = −(n³/2)·p<sub>eff</sub>·ε.
+          </figcaption>
+        </figure>
+
+        <!-- Superposición local normalizada -->
+        <figure class="img-card">
+          <h4 class="img-title">Superposición local (normalizada)</h4>
+          <img
+            src="img/lit15_overlay_segment.png"
+            alt="Segmento temporal comparando señal DAS, deformación y fase normalizadas"
+            class="img-fit zoomable"
+            loading="lazy" />
+          <figcaption>
+            Ventana corta en el tiempo: señal DAS, ε y Δφ normalizadas para analizar coherencia local.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+  </div>
+</section>
+
+
+  <!-- Modal zoom -->
+  <div id="img-modal" class="modal" aria-hidden="true">
+    <span class="modal-close" role="button" tabindex="0">&times;</span>
+    <img class="modal-content" id="modal-img" alt="Zoom" />
+    <div id="modal-caption"></div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
